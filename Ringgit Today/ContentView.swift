@@ -10,7 +10,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        TabView {
+            RatesView()
+                .tabItem {
+                    Image(systemName: "list.dash")
+                    Text("Rates")
+                }
+
+            ConverterView()
+                .tabItem {
+                    Image(systemName: "repeat")
+                    Text("Converter")
+                }
+            
+            SettingsView()
+            .tabItem {
+                Image(systemName: "gear")
+                Text("Settings")
+            }
+        }
     }
 }
 
