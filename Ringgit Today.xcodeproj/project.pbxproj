@@ -26,6 +26,7 @@
 		E081E190240F59230076917C /* Decoder-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081E18F240F59230076917C /* Decoder-Helper.swift */; };
 		E081E192240F67F80076917C /* CurrencyServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081E191240F67F80076917C /* CurrencyServiceProtocol.swift */; };
 		E081E194240F85E30076917C /* SettingsLevel2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081E193240F85E30076917C /* SettingsLevel2View.swift */; };
+		E081E196240FA5CD0076917C /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081E195240FA5CD0076917C /* CurrencyListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		E081E18F240F59230076917C /* Decoder-Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decoder-Helper.swift"; sourceTree = "<group>"; };
 		E081E191240F67F80076917C /* CurrencyServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceProtocol.swift; sourceTree = "<group>"; };
 		E081E193240F85E30076917C /* SettingsLevel2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLevel2View.swift; sourceTree = "<group>"; };
+		E081E195240FA5CD0076917C /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				E075223523FFE328005EB09A /* ConverterView.swift */,
+				E081E195240FA5CD0076917C /* CurrencyListView.swift */,
 			);
 			path = Converter;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				E075221F23FFD912005EB09A /* ContentView.swift in Sources */,
 				E081E188240F562C0076917C /* ActivityIndicator.swift in Sources */,
 				E030808C240252A100906279 /* CurrenyModel.swift in Sources */,
+				E081E196240FA5CD0076917C /* CurrencyListView.swift in Sources */,
 				E06462272407642E00CD9354 /* ClearButtonModifier.swift in Sources */,
 				E075223823FFE32F005EB09A /* RatesView.swift in Sources */,
 				E081E194240F85E30076917C /* SettingsLevel2View.swift in Sources */,

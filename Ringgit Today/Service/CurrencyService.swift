@@ -40,21 +40,6 @@ class CurrencyService: ObservableObject {
             DispatchQueue.main.async {
                 self.currencyModel = JSONDecoder().decode(data)
             }
-            
-//            if let data = data {
-//                if let decodedResponse = try? JSONDecoder().decode(CurrenyModel.self, from: data) {
-//                    // we have good data – go back to the main thread
-//                    DispatchQueue.main.async {
-//                        self.currencyModel = decodedResponse
-//                    }
-//                    return
-//                } else {
-////                    self.showError = true
-////                    self.alertTitle = "Error"
-////                    self.alertMessage = "Unable to decode data"
-//                    return
-//                }
-//            }
         }.resume()
     }
 }

@@ -11,12 +11,12 @@ import SwiftUI
 struct ConverterView: View {
     @State private var selectedCurrenry = ""
     
-    @ObservedObject var currencyRates = CurrenyModel()
-    
     let rate = 0.240 // hardcoded rate for testing
 
     @State private var amountInMRY: String = ""
     @State private var amountInOthersCurrency: String = ""
+    
+    @ObservedObject var service = CurrencyService()
 
     var body: some View {
         
@@ -58,7 +58,7 @@ struct ConverterView: View {
                 Text("Rates: \(numberFormatter(amount: rate))")
 
                 //MYR
-                HStack {
+                HStack(spacing: 25) {
                     FlagImageView(flagName: "MYR")
                     
                     TextField("MYR", text: MYRBinding)
@@ -69,12 +69,25 @@ struct ConverterView: View {
                 
                 //other currencies
                 HStack {
+                    // picker style, for future reference
+//                    Picker("Select", selection: $selectedCurrenry) {
+//                        ForEach(0..<self.service.currencyModel.allCurrencies.count, id: \.self) {
+//                            Text(self.service.currencyModel.allCurrencies[$0])
+//                        }
+//                    }
+                    
                     Button(action: {
-                        print("currencyRates : \(self.currencyRates.allRates)")
+                        print("currencyRates : \(self.service.currencyModel.allCurrencies)")
                     }) {
-                        FlagImageView(flagName: "GBP")
+                        NavigationLink(destination: CurrencyListView(currencyArray: self.service.currencyModel.allCurrencies)) {
+                            FlagImageView(flagName: "GBP")
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
                     .buttonStyle(PlainButtonStyle())
+                    
+                    Image(systemName: "arrow.right")
+                        .frame(width: 10, height: 10)
                     
                     TextField("GBP", text: otherCurrencyBinding)
                     .modifier(ClearButtonModifier(text: $amountInOthersCurrency))
