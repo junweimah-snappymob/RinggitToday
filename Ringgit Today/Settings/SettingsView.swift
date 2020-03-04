@@ -21,10 +21,10 @@ struct SettingsView: View {
                 ForEach(settings, id: \.self) { setting in
                         NavigationLink(destination: SettingsLevel2View(rows: self.settingsLevel2PrivacyPolicy, title: "")) {
                             Text("\(setting)")
-                        }
+                    }
                 }
             }
-        .navigationBarTitle("Settings")
+            .navigationBarTitle("Settings")
         }
     }
 }

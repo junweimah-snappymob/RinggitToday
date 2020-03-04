@@ -17,6 +17,8 @@ struct RatesView: View {
     //just use an ObservedObject service, in that class, call api, and will reflect here
     @ObservedObject var service = CurrencyService()
     
+    @EnvironmentObject var currenyModel: CurrenyModel
+    
 //    @ObservedObject var viewmodel = RatesViewViewModel()
 
     var body: some View {
