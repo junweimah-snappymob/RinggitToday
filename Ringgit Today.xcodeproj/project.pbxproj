@@ -7,15 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E030808A24023BC700906279 /* FlagImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030808924023BC700906279 /* FlagImageView.swift */; };
+		E030808C240252A100906279 /* CurrenyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030808B240252A100906279 /* CurrenyModel.swift */; };
+		E05AB35F24036699005C4537 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AB35E24036699005C4537 /* CurrencyService.swift */; };
+		E05D924C2402241700D0141B /* RatesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05D924B2402241700D0141B /* RatesRow.swift */; };
+		E05D924F240237C000D0141B /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05D924E240237C000D0141B /* CreditsView.swift */; };
+		E06462272407642E00CD9354 /* ClearButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06462262407642E00CD9354 /* ClearButtonModifier.swift */; };
+		E0680B3D240E036200D30097 /* RatesViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0680B3C240E036200D30097 /* RatesViewViewModel.swift */; };
 		E075221B23FFD912005EB09A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E075221A23FFD912005EB09A /* AppDelegate.swift */; };
 		E075221D23FFD912005EB09A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E075221C23FFD912005EB09A /* SceneDelegate.swift */; };
 		E075221F23FFD912005EB09A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E075221E23FFD912005EB09A /* ContentView.swift */; };
 		E075222123FFD914005EB09A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E075222023FFD914005EB09A /* Assets.xcassets */; };
 		E075222423FFD914005EB09A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E075222323FFD914005EB09A /* Preview Assets.xcassets */; };
 		E075222723FFD914005EB09A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E075222523FFD914005EB09A /* LaunchScreen.storyboard */; };
+		E075223623FFE328005EB09A /* ConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E075223523FFE328005EB09A /* ConverterView.swift */; };
+		E075223823FFE32F005EB09A /* RatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E075223723FFE32F005EB09A /* RatesView.swift */; };
+		E075223A23FFE336005EB09A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E075223923FFE336005EB09A /* SettingsView.swift */; };
+		E081E188240F562C0076917C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081E187240F562C0076917C /* ActivityIndicator.swift */; };
+		E081E190240F59230076917C /* Decoder-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081E18F240F59230076917C /* Decoder-Helper.swift */; };
+		E081E192240F67F80076917C /* CurrencyServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081E191240F67F80076917C /* CurrencyServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E030808924023BC700906279 /* FlagImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagImageView.swift; sourceTree = "<group>"; };
+		E030808B240252A100906279 /* CurrenyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenyModel.swift; sourceTree = "<group>"; };
+		E05AB35E24036699005C4537 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		E05D924B2402241700D0141B /* RatesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesRow.swift; sourceTree = "<group>"; };
+		E05D924E240237C000D0141B /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		E06462262407642E00CD9354 /* ClearButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonModifier.swift; sourceTree = "<group>"; };
+		E0680B3C240E036200D30097 /* RatesViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewViewModel.swift; sourceTree = "<group>"; };
 		E075221723FFD912005EB09A /* Ringgit Today.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ringgit Today.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E075221A23FFD912005EB09A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E075221C23FFD912005EB09A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +44,12 @@
 		E075222323FFD914005EB09A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E075222623FFD914005EB09A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E075222823FFD914005EB09A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E075223523FFE328005EB09A /* ConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterView.swift; sourceTree = "<group>"; };
+		E075223723FFE32F005EB09A /* RatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesView.swift; sourceTree = "<group>"; };
+		E075223923FFE336005EB09A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E081E187240F562C0076917C /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		E081E18F240F59230076917C /* Decoder-Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decoder-Helper.swift"; sourceTree = "<group>"; };
+		E081E191240F67F80076917C /* CurrencyServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +63,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E030808824023BBB00906279 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				E030808924023BC700906279 /* FlagImageView.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		E05D924D240237B400D0141B /* Credits */ = {
+			isa = PBXGroup;
+			children = (
+				E05D924E240237C000D0141B /* CreditsView.swift */,
+			);
+			path = Credits;
+			sourceTree = "<group>";
+		};
+		E06462252407641800CD9354 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				E06462262407642E00CD9354 /* ClearButtonModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		E0680B38240DFCFF00D30097 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E081E187240F562C0076917C /* ActivityIndicator.swift */,
+				E081E18F240F59230076917C /* Decoder-Helper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		E0680B3B240E034700D30097 /* Row View */ = {
+			isa = PBXGroup;
+			children = (
+				E05D924B2402241700D0141B /* RatesRow.swift */,
+			);
+			path = "Row View";
+			sourceTree = "<group>";
+		};
 		E075220E23FFD912005EB09A = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +123,14 @@
 		E075221923FFD912005EB09A /* Ringgit Today */ = {
 			isa = PBXGroup;
 			children = (
+				E0680B38240DFCFF00D30097 /* Helper */,
+				E06462252407641800CD9354 /* Modifier */,
+				E030808824023BBB00906279 /* Custom Views */,
+				E075223223FFE2E3005EB09A /* Service */,
+				E075223123FFE2DF005EB09A /* Model */,
+				E075223023FFE2D9005EB09A /* Converter */,
+				E075222F23FFE2D1005EB09A /* Rates */,
+				E075222E23FFE2A1005EB09A /* Settings */,
 				E075221A23FFD912005EB09A /* AppDelegate.swift */,
 				E075221C23FFD912005EB09A /* SceneDelegate.swift */,
 				E075221E23FFD912005EB09A /* ContentView.swift */,
@@ -73,6 +148,50 @@
 				E075222323FFD914005EB09A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E075222E23FFE2A1005EB09A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E05D924D240237B400D0141B /* Credits */,
+				E075223923FFE336005EB09A /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		E075222F23FFE2D1005EB09A /* Rates */ = {
+			isa = PBXGroup;
+			children = (
+				E075223723FFE32F005EB09A /* RatesView.swift */,
+				E0680B3C240E036200D30097 /* RatesViewViewModel.swift */,
+				E0680B3B240E034700D30097 /* Row View */,
+			);
+			path = Rates;
+			sourceTree = "<group>";
+		};
+		E075223023FFE2D9005EB09A /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				E075223523FFE328005EB09A /* ConverterView.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		E075223123FFE2DF005EB09A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E030808B240252A100906279 /* CurrenyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E075223223FFE2E3005EB09A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E05AB35E24036699005C4537 /* CurrencyService.swift */,
+				E081E191240F67F80076917C /* CurrencyServiceProtocol.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +266,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				E075221B23FFD912005EB09A /* AppDelegate.swift in Sources */,
+				E075223623FFE328005EB09A /* ConverterView.swift in Sources */,
+				E0680B3D240E036200D30097 /* RatesViewViewModel.swift in Sources */,
+				E05AB35F24036699005C4537 /* CurrencyService.swift in Sources */,
+				E030808A24023BC700906279 /* FlagImageView.swift in Sources */,
+				E05D924C2402241700D0141B /* RatesRow.swift in Sources */,
+				E081E192240F67F80076917C /* CurrencyServiceProtocol.swift in Sources */,
 				E075221D23FFD912005EB09A /* SceneDelegate.swift in Sources */,
+				E075223A23FFE336005EB09A /* SettingsView.swift in Sources */,
+				E081E190240F59230076917C /* Decoder-Helper.swift in Sources */,
+				E05D924F240237C000D0141B /* CreditsView.swift in Sources */,
 				E075221F23FFD912005EB09A /* ContentView.swift in Sources */,
+				E081E188240F562C0076917C /* ActivityIndicator.swift in Sources */,
+				E030808C240252A100906279 /* CurrenyModel.swift in Sources */,
+				E06462272407642E00CD9354 /* ClearButtonModifier.swift in Sources */,
+				E075223823FFE32F005EB09A /* RatesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
