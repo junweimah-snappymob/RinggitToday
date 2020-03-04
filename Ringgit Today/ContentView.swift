@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var service = CurrencyService()
+
     var body: some View {
         TabView {
             RatesView()

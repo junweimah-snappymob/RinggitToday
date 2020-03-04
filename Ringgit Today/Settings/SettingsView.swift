@@ -9,8 +9,19 @@
 import SwiftUI
 
 struct SettingsView: View {
+    var settings = ["Privacy Policy", "Credits"]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            Form {
+                ForEach(settings, id: \.self) { setting in
+                    NavigationLink(destination: CreditsView()) {
+                        Text("\(setting)")
+                    }
+                }
+            }
+        .navigationBarTitle("Settings")
+        }
     }
 }
 
