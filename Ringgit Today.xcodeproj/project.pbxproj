@@ -27,6 +27,8 @@
 		E081E192240F67F80076917C /* CurrencyServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081E191240F67F80076917C /* CurrencyServiceProtocol.swift */; };
 		E081E194240F85E30076917C /* SettingsLevel2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081E193240F85E30076917C /* SettingsLevel2View.swift */; };
 		E081E196240FA5CD0076917C /* CurrencyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E081E195240FA5CD0076917C /* CurrencyListView.swift */; };
+		E0887F1F2410A8CA00582B30 /* DismissKeyboard-Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0887F1E2410A8C900582B30 /* DismissKeyboard-Modifier.swift */; };
+		E0887F212410E65300582B30 /* privacy_policy.html in Resources */ = {isa = PBXBuildFile; fileRef = E0887F202410E65300582B30 /* privacy_policy.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		E081E191240F67F80076917C /* CurrencyServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceProtocol.swift; sourceTree = "<group>"; };
 		E081E193240F85E30076917C /* SettingsLevel2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLevel2View.swift; sourceTree = "<group>"; };
 		E081E195240FA5CD0076917C /* CurrencyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListView.swift; sourceTree = "<group>"; };
+		E0887F1E2410A8C900582B30 /* DismissKeyboard-Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DismissKeyboard-Modifier.swift"; sourceTree = "<group>"; };
+		E0887F202410E65300582B30 /* privacy_policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy_policy.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			children = (
 				E081E187240F562C0076917C /* ActivityIndicator.swift */,
 				E081E18F240F59230076917C /* Decoder-Helper.swift */,
+				E0887F1E2410A8C900582B30 /* DismissKeyboard-Modifier.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 				E075221A23FFD912005EB09A /* AppDelegate.swift */,
 				E075221C23FFD912005EB09A /* SceneDelegate.swift */,
 				E075221E23FFD912005EB09A /* ContentView.swift */,
+				E0887F202410E65300582B30 /* privacy_policy.html */,
 				E075222023FFD914005EB09A /* Assets.xcassets */,
 				E075222523FFD914005EB09A /* LaunchScreen.storyboard */,
 				E075222823FFD914005EB09A /* Info.plist */,
@@ -250,6 +256,7 @@
 				E075222723FFD914005EB09A /* LaunchScreen.storyboard in Resources */,
 				E075222423FFD914005EB09A /* Preview Assets.xcassets in Resources */,
 				E075222123FFD914005EB09A /* Assets.xcassets in Resources */,
+				E0887F212410E65300582B30 /* privacy_policy.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +271,7 @@
 				E075223623FFE328005EB09A /* ConverterView.swift in Sources */,
 				E0680B3D240E036200D30097 /* RatesViewViewModel.swift in Sources */,
 				E05AB35F24036699005C4537 /* CurrencyService.swift in Sources */,
+				E0887F1F2410A8CA00582B30 /* DismissKeyboard-Modifier.swift in Sources */,
 				E030808A24023BC700906279 /* FlagImageView.swift in Sources */,
 				E05D924C2402241700D0141B /* RatesRow.swift in Sources */,
 				E081E192240F67F80076917C /* CurrencyServiceProtocol.swift in Sources */,
@@ -414,13 +422,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Ringgit Today/Preview Content\"";
+				DEVELOPMENT_TEAM = AL6J9Q293C;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Ringgit Today/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "junwei.Ringgit-Today";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bfm.bfmapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -433,13 +442,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Ringgit Today/Preview Content\"";
+				DEVELOPMENT_TEAM = AL6J9Q293C;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Ringgit Today/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "junwei.Ringgit-Today";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bfm.bfmapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
