@@ -7,11 +7,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ConverterView: View {
-    @State private var selectedCurrenry = ""
-    
-    let rate = 0.240 // hardcoded rate for testing
+    @State private var selectedCurrenry = "GBP" //hardcoded
+    @State private var selectedCurrencyRate = 0.24 //hardcoded
 
     @State private var amountInMRY: String = ""
     @State private var amountInOthersCurrency: String = ""
@@ -33,8 +33,7 @@ struct ConverterView: View {
                 return
             }
             
-            self.amountInOthersCurrency = self.numberFormatter(amount: doubleAmount * self.rate)
-            
+            self.amountInOthersCurrency = self.numberFormatter(amount: doubleAmount * self.selectedCurrencyRate)
         })
         
         let otherCurrencyBinding = Binding<String>(get: {
@@ -47,15 +46,15 @@ struct ConverterView: View {
                 return
             }
             
-            self.amountInMRY = self.numberFormatter(amount: doubleAmount / self.rate)
+            self.amountInMRY = self.numberFormatter(amount: doubleAmount / self.selectedCurrencyRate)
         })
         
         //----------------------------------------
         // MARK:- Return the view
         //----------------------------------------
         return NavigationView {
-            VStack(spacing: 60) {
-                Text("Rates: \(numberFormatter(amount: rate))")
+            VStack(spacing: 30) {
+                Text("Rates: \(numberFormatter(amount: selectedCurrencyRate))")
 
                 //MYR
                 HStack(spacing: 25) {
@@ -79,8 +78,11 @@ struct ConverterView: View {
                     Button(action: {
                         print("currencyRates : \(self.service.currencyModel.allCurrencies)")
                     }) {
-                        NavigationLink(destination: CurrencyListView(currencyArray: self.service.currencyModel.allCurrencies)) {
-                            FlagImageView(flagName: "GBP")
+                        NavigationLink(destination: CurrencyListView(currencyArray: self.service.currencyModel.allCurrencies, closure: { (index) -> () in
+                            self.selectedCurrenry = self.service.currencyModel.allCurrencies[index]
+                            self.selectedCurrencyRate = self.service.currencyModel.allRates[index]
+                        })) {
+                            FlagImageView(flagName: selectedCurrenry)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
@@ -89,7 +91,7 @@ struct ConverterView: View {
                     Image(systemName: "arrow.right")
                         .frame(width: 10, height: 10)
                     
-                    TextField("GBP", text: otherCurrencyBinding)
+                    TextField(selectedCurrenry, text: otherCurrencyBinding)
                     .modifier(ClearButtonModifier(text: $amountInOthersCurrency))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
@@ -100,6 +102,7 @@ struct ConverterView: View {
             }.padding()
         .navigationBarTitle("Converter")
         }
+        .modifier(DismissingKeyboard())
     }
     
     private func numberFormatter(amount: Double) -> String {

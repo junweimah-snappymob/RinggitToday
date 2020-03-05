@@ -11,6 +11,10 @@ import SwiftUI
 struct CurrencyListView: View {
     var currencyArray: [String] = [""]
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var closure: ((Int) -> ())
+
     var body: some View {
         List {
             ForEach(currencyArray, id: \.self) { currency in
@@ -24,15 +28,20 @@ struct CurrencyListView: View {
                     
                     Spacer()
                 }
+                .frame(maxWidth: .infinity)
+                .gesture(
+                    TapGesture()
+                        .onEnded { _ in
+                            self.presentationMode.wrappedValue.dismiss()
+                            guard let index = self.currencyArray.lastIndex(of: currency) else {
+                                return
+                            }
+                            self.closure(index)
+                        }
+                )
                 
             }
         }
         .navigationBarTitle("Currency", displayMode: .inline)
-    }
-}
-
-struct CurrencyListView_Previews: PreviewProvider {
-    static var previews: some View {
-        CurrencyListView()
     }
 }
