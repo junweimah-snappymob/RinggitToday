@@ -59,17 +59,13 @@ struct ConverterView: View {
             VStack {
                 if service.state == .loading {
                     ActivityIndicator()
-                } else if (service.state == .error) {
+                } else if service.state == .error {
                     Text("Error")
                 } else {
                     VStack(spacing: 30) {
-                        HStack {
-                            Text("Rates: \(numberFormatter(amount: selectedCurrencyRate))")
-                                .font(.headline)
-                            Spacer()
-                        }
+                        Text("Rates: \(numberFormatter(amount: selectedCurrencyRate))")
                         
-                        //MYR
+                        // MYR
                         HStack(spacing: 25) {
                             FlagImageView(flagName: "MYR")
                             
@@ -79,13 +75,19 @@ struct ConverterView: View {
                                 .keyboardType(.decimalPad)
                         }
                         
-                        //other currencies
+                        // other currencies
                         HStack {
-                            NavigationLink(destination: CurrencyListView(currencyArray: self.service.currencyModel.allCurrencies, closure: { (index) -> () in
-                                self.selectedCurrenry = self.service.currencyModel.allCurrencies[index]
-                                self.selectedCurrencyRate = self.service.currencyModel.allRates[index]
-                            })) {
-                                FlagImageView(flagName: selectedCurrenry)
+                            
+                            Button(action: {
+                                print("currencyRates : \(self.service.currencyModel.allCurrencies)")
+                            }) {
+                                NavigationLink(destination: CurrencyListView(currencyArray: self.service.currencyModel.allCurrencies, closure: { (index) -> () in
+                                    self.selectedCurrenry = self.service.currencyModel.allCurrencies[index]
+                                    self.selectedCurrencyRate = self.service.currencyModel.allRates[index]
+                                })) {
+                                    FlagImageView(flagName: selectedCurrenry)
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
                             .buttonStyle(PlainButtonStyle())
                             
@@ -100,23 +102,22 @@ struct ConverterView: View {
                         
                         Spacer()
                         
-                    }.padding()
-                        
+                    }
+                    .onAppear(perform: setFirstData)
+                    .padding()
+                    .navigationBarTitle("Converter")
                 }
-                
             }
-            .navigationBarTitle("Converter")
-            .modifier(DismissingKeyboard())
-            .onAppear(perform: setFirstData)
         }
+        .modifier(DismissingKeyboard())
     }
     
     //----------------------------------------
     // MARK:- Private methods
     //----------------------------------------
     private func setFirstData() {
-        selectedCurrenry = service.currencyModel.allCurrencies.first!
-        selectedCurrencyRate = service.currencyModel.allRates.first!
+        selectedCurrenry = service.currencyModel.rates["USD"] != nil ? "USD" : ""
+        selectedCurrencyRate = service.currencyModel.rates["USD"] ?? 0.00
     }
     
     private func numberFormatter(amount: Double) -> String {
