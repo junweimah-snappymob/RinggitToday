@@ -29,8 +29,11 @@ struct ActivityIndicator: View {
             }
         }
         .aspectRatio(1, contentMode: .fit)
-            .onAppear {
-                self.isAnimating = true
+        .onAppear {
+            self.isAnimating = true
+        }
+        .onDisappear {
+            self.isAnimating = false
         }
         .frame(width: 80, height: 80)
     }
