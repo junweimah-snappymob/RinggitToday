@@ -15,7 +15,8 @@ struct ConverterView: View {
     //----------------------------------------
     @State private var selectedCurrenry = ""
     @State private var selectedCurrencyRate = 0.00
-    
+    @State private var userSelectedOtherCurrency = false
+
     @State private var amountInMRY: String = ""
     @State private var amountInOthersCurrency: String = ""
     
@@ -84,6 +85,7 @@ struct ConverterView: View {
                                 NavigationLink(destination: CurrencyListView(currencyArray: self.service.currencyModel.allCurrencies, closure: { (index) -> () in
                                     self.selectedCurrenry = self.service.currencyModel.allCurrencies[index]
                                     self.selectedCurrencyRate = self.service.currencyModel.allRates[index]
+                                    self.userSelectedOtherCurrency = true
                                 })) {
                                     FlagImageView(flagName: selectedCurrenry)
                                 }
@@ -116,8 +118,10 @@ struct ConverterView: View {
     // MARK:- Private methods
     //----------------------------------------
     private func setFirstData() {
-        selectedCurrenry = service.currencyModel.rates["USD"] != nil ? "USD" : ""
-        selectedCurrencyRate = service.currencyModel.rates["USD"] ?? 0.00
+        if !userSelectedOtherCurrency {
+            selectedCurrenry = service.currencyModel.rates["USD"] != nil ? "USD" : ""
+            selectedCurrencyRate = service.currencyModel.rates["USD"] ?? 0.00
+        }
     }
     
     private func numberFormatter(amount: Double) -> String {
