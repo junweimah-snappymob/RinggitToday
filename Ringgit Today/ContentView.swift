@@ -9,17 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var service = CurrencyService()
+    @EnvironmentObject var service: CurrencyService
 
     var body: some View {
         TabView {
-            RatesView()
+            RatesView().environmentObject(service)
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("Rates")
                 }
 
-            ConverterView()
+            ConverterView().environmentObject(service)
                 .tabItem {
                     Image(systemName: "repeat")
                     Text("Converter")
@@ -31,6 +31,8 @@ struct ContentView: View {
                 Text("Settings")
             }
         }
+        .edgesIgnoringSafeArea(.top)
+        .onAppear(perform: service.fetchCurrency)
     }
 }
 

@@ -10,14 +10,17 @@ import SwiftUI
 import Combine
 
 struct ConverterView: View {
-    @State private var selectedCurrenry = "GBP" //hardcoded
-    @State private var selectedCurrencyRate = 0.24 //hardcoded
-
+    //----------------------------------------
+    // MARK:- Private Properties
+    //----------------------------------------
+    @State private var selectedCurrenry = ""
+    @State private var selectedCurrencyRate = 0.00
+    
     @State private var amountInMRY: String = ""
     @State private var amountInOthersCurrency: String = ""
     
-    @ObservedObject var service = CurrencyService()
-
+    @EnvironmentObject var service: CurrencyService
+    
     var body: some View {
         
         //----------------------------------------
@@ -27,7 +30,7 @@ struct ConverterView: View {
             self.amountInMRY
         }, set: {
             self.amountInMRY = $0
-
+            
             guard let doubleAmount = Double(self.amountInMRY) else {
                 self.amountInOthersCurrency = ""
                 return
@@ -40,7 +43,7 @@ struct ConverterView: View {
             self.amountInOthersCurrency
         }, set: {
             self.amountInOthersCurrency = $0
-
+            
             guard let doubleAmount = Double(self.amountInOthersCurrency) else {
                 self.amountInMRY = ""
                 return
@@ -53,56 +56,67 @@ struct ConverterView: View {
         // MARK:- Return the view
         //----------------------------------------
         return NavigationView {
-            VStack(spacing: 30) {
-                Text("Rates: \(numberFormatter(amount: selectedCurrencyRate))")
-
-                //MYR
-                HStack(spacing: 25) {
-                    FlagImageView(flagName: "MYR")
-                    
-                    TextField("MYR", text: MYRBinding)
-                        .modifier(ClearButtonModifier(text: $amountInOthersCurrency))
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.decimalPad)
-                }
-                
-                //other currencies
-                HStack {
-                    // picker style, for future reference
-//                    Picker("Select", selection: $selectedCurrenry) {
-//                        ForEach(0..<self.service.currencyModel.allCurrencies.count, id: \.self) {
-//                            Text(self.service.currencyModel.allCurrencies[$0])
-//                        }
-//                    }
-                    
-                    Button(action: {
-                        print("currencyRates : \(self.service.currencyModel.allCurrencies)")
-                    }) {
-                        NavigationLink(destination: CurrencyListView(currencyArray: self.service.currencyModel.allCurrencies, closure: { (index) -> () in
-                            self.selectedCurrenry = self.service.currencyModel.allCurrencies[index]
-                            self.selectedCurrencyRate = self.service.currencyModel.allRates[index]
-                        })) {
-                            FlagImageView(flagName: selectedCurrenry)
+            VStack {
+                if service.state == .loading {
+                    ActivityIndicator()
+                } else if (service.state == .error) {
+                    Text("Error")
+                } else {
+                    VStack(spacing: 30) {
+                        HStack {
+                            Text("Rates: \(numberFormatter(amount: selectedCurrencyRate))")
+                                .font(.headline)
+                            Spacer()
                         }
-                        .buttonStyle(PlainButtonStyle())
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    Image(systemName: "arrow.right")
-                        .frame(width: 10, height: 10)
-                    
-                    TextField(selectedCurrenry, text: otherCurrencyBinding)
-                    .modifier(ClearButtonModifier(text: $amountInOthersCurrency))
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.decimalPad)
+                        
+                        //MYR
+                        HStack(spacing: 25) {
+                            FlagImageView(flagName: "MYR")
+                            
+                            TextField("MYR", text: MYRBinding)
+                                .modifier(ClearButtonModifier(text: $amountInOthersCurrency))
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .keyboardType(.decimalPad)
+                        }
+                        
+                        //other currencies
+                        HStack {
+                            NavigationLink(destination: CurrencyListView(currencyArray: self.service.currencyModel.allCurrencies, closure: { (index) -> () in
+                                self.selectedCurrenry = self.service.currencyModel.allCurrencies[index]
+                                self.selectedCurrencyRate = self.service.currencyModel.allRates[index]
+                            })) {
+                                FlagImageView(flagName: selectedCurrenry)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            
+                            Image(systemName: "arrow.right")
+                                .frame(width: 10, height: 10)
+                            
+                            TextField(selectedCurrenry, text: otherCurrencyBinding)
+                                .modifier(ClearButtonModifier(text: $amountInOthersCurrency))
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .keyboardType(.decimalPad)
+                        }
+                        
+                        Spacer()
+                        
+                    }.padding()
+                        
                 }
                 
-                Spacer()
-                
-            }.padding()
-        .navigationBarTitle("Converter")
+            }
+            .navigationBarTitle("Converter")
+            .modifier(DismissingKeyboard())
+            .onAppear(perform: setFirstData)
         }
-        .modifier(DismissingKeyboard())
+    }
+    
+    //----------------------------------------
+    // MARK:- Private methods
+    //----------------------------------------
+    private func setFirstData() {
+        selectedCurrenry = service.currencyModel.allCurrencies.first!
+        selectedCurrencyRate = service.currencyModel.allRates.first!
     }
     
     private func numberFormatter(amount: Double) -> String {
