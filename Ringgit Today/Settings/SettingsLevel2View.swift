@@ -11,6 +11,7 @@ import SwiftUI
 struct SettingsLevel2View: View {
     var rows: [String] = []
     var title: String = ""
+    
     let urlPrivacyPolicy = Bundle.main.url(forResource: "privacy_policy", withExtension: "html")
     let urlAPI = URL(string: "https://exchangeratesapi.io/")
     let urlIcon = URL(string: "https://www.flaticon.com/")
@@ -29,7 +30,7 @@ struct SettingsLevel2View: View {
     private func destination (for setting: String) -> WebView {
         if setting == "Privacy Policy" {
             return WebView(request: URLRequest(url: self.urlPrivacyPolicy!))
-        } else if (setting == "API by") {
+        } else if (setting == "API by exchangeratesapi.io") {
             return WebView(request: URLRequest(url: self.urlAPI!))
         } else {
             return WebView(request: URLRequest(url: self.urlIcon!))
@@ -37,7 +38,9 @@ struct SettingsLevel2View: View {
     }
 
 }
-
+//----------------------------------------
+// MARK:- Import UIKit WebKit as SwiftUI doesn't have any webview yet
+//----------------------------------------
 import WebKit
 struct WebView : UIViewRepresentable {
       

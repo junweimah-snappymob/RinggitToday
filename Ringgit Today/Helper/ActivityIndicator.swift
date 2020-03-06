@@ -10,32 +10,28 @@ import SwiftUI
 
 struct ActivityIndicator: View {
     
-    @State private var degress = 0.0
-    let color: Color
-    let size: CGFloat
-    var body: some View {
-        Circle()
-            .trim(from: 0.0, to: 0.8)
-            .stroke(color, lineWidth: 5.0)
-            .frame(width: size, height: size)
-            .rotationEffect(Angle(degrees: degress))
-            .onAppear{ self.start()}
-    }
+    @State private var isAnimating: Bool = false
     
-    func start() {
-        Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { timer in
-            withAnimation {
-                self.degress += 10.0
-            }
-            if self.degress == 360.0 {
-                self.degress = 0.0
+    var body: some View {
+        GeometryReader { (geometry: GeometryProxy) in
+            ForEach(0..<5) { index in
+                Group {
+                    Circle()
+                        .foregroundColor(.red)
+                        .frame(width: geometry.size.width / 5, height: geometry.size.height / 5)
+                        .scaleEffect(!self.isAnimating ? 1 - CGFloat(index) / 5 : 0.2 + CGFloat(index) / 5)
+                        .offset(y: geometry.size.width / 10 - geometry.size.height / 2)
+                }.frame(width: geometry.size.width, height: geometry.size.height)
+                    .rotationEffect(!self.isAnimating ? .degrees(0) : .degrees(360))
+                    .animation(Animation
+                        .timingCurve(0.5, 0.15 + Double(index) / 5, 0.25, 1, duration: 1.5)
+                        .repeatForever(autoreverses: false))
             }
         }
-    }
-}
-
-struct ActivityIndicator_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityIndicator(color: Color.green, size: 80)
+        .aspectRatio(1, contentMode: .fit)
+            .onAppear {
+                self.isAnimating = true
+        }
+        .frame(width: 80, height: 80)
     }
 }

@@ -11,6 +11,7 @@ import SwiftUI
 struct CurrencyListView: View {
     var currencyArray: [String] = [""]
     
+    // used for dismiss
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var closure: ((Int) -> ())

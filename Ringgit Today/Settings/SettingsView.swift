@@ -13,7 +13,7 @@ struct SettingsView: View {
     
     // level 2
     var settingsLevel2PrivacyPolicy = ["Privacy Policy"]
-    var settingsLevel2Credit = ["API by", "Icons by"]
+    var settingsLevel2Credit = ["API by exchangeratesapi.io", "Icons by flaticon.com"]
     
     var body: some View {
         NavigationView {
@@ -24,7 +24,7 @@ struct SettingsView: View {
                     }
                 }
             }
-            .navigationBarTitle("Settings")
+        .navigationBarTitle("Settings")
         }
     }
     
